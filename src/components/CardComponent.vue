@@ -21,7 +21,7 @@ const cardName = `${props.suit}${props.num}`;
 /**
  * 牌面图片路径
  */
-let imgPath = ref(`/poker/${CARD_BACK_IMAGE_NAME}.png`);
+let imgPath = ref(`poker/${CARD_BACK_IMAGE_NAME}.png`);
 
 /**
  * 正面朝上

@@ -1,24 +1,18 @@
 <template>
   <div id="table">
-    <el-container>
-      <el-main>
-        <el-row v-for="r in 4" :key="r" justify="center">
-          <el-col
-            span="2"
-            v-for="card in cards.filter(
-              (_, i) => i >= (r - 1) * 13 && i < r * 13
-            )"
-            :key="card.suit + card.point"
-          >
-            <card-component :suit="card.suit" :num="card.point" />
-          </el-col>
-        </el-row>
-        <el-divider />
-        <el-row>
-          <el-button @click="back()"> 返回 </el-button>
-        </el-row>
-      </el-main>
-    </el-container>
+    <el-row v-for="r in 4" :key="r" justify="center">
+      <el-col
+        span="2"
+        v-for="card in cards.filter((_, i) => i >= (r - 1) * 13 && i < r * 13)"
+        :key="card.suit + card.point"
+      >
+        <card-component :suit="card.suit" :num="card.point" />
+      </el-col>
+    </el-row>
+    <el-divider />
+    <el-row>
+      <el-button @click="back()"> 返回</el-button>
+    </el-row>
   </div>
 </template>
 

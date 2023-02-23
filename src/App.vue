@@ -8,7 +8,14 @@
         <router-view />
       </el-main>
       <el-footer id="footer">
-        <el-link type="primary" href="https://tomoto.top">tomoto.top</el-link>
+        <el-space spacer="|">
+          <el-link type="primary" href="https://tomoto.top">tomoto.top</el-link>
+          <el-link
+            type="primary"
+            href="https://github.com/Tomotopieces/flip-and-match"
+            >Github</el-link
+          >
+        </el-space>
       </el-footer>
     </el-container>
   </div>
@@ -26,6 +33,7 @@ router.push("/title");
   font-weight: bold;
   font-size: 3.5rem;
 }
+
 #app {
   position: absolute;
   top: 0;
