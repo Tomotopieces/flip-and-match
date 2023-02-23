@@ -1,30 +1,51 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div id="app">
+    <el-container id="container">
+      <el-header>
+        <div id="title">神经衰弱</div>
+      </el-header>
+      <el-main id="main">
+        <router-view />
+      </el-main>
+      <el-footer id="footer">
+        <el-link type="primary" href="https://tomoto.top">tomoto.top</el-link>
+      </el-footer>
+    </el-container>
+  </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<script setup lang="ts">
+import router from "@/router";
+
+router.push("/title");
+</script>
+
+<style scoped>
+#title {
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
   font-weight: bold;
-  color: #2c3e50;
+  font-size: 3.5rem;
+}
+#app {
+  position: absolute;
+  top: 0;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+#container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#main {
+  flex: 1;
+}
+
+#footer {
+  flex: 0;
+  text-align: center;
 }
 </style>
