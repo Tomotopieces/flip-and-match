@@ -9,7 +9,13 @@ import { defineProps, ref } from "vue";
 import { CARD_BACK_IMAGE_NAME, PointEnum, SuitEnum } from "@/ts/Card";
 
 const props = defineProps<{
+  /**
+   * 花色
+   */
   suit: SuitEnum;
+  /**
+   * 点数
+   */
   num: PointEnum;
 }>();
 

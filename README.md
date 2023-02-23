@@ -1,24 +1,9 @@
-# flip-and-match
+# 神经衰弱
 
-## Project setup
-```
-npm install
-```
+*flip-and-match*
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+本项目为旧项目 [FlipAndMatch](https://github.com/Tomotopieces/FlipAndMatch) 的重构
 
-### Compiles and minifies for production
-```
-npm run build
-```
+转用`Vue3`+`Typescript`来构建项目
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+UI部分使用`Element-Plus`

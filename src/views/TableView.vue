@@ -2,8 +2,10 @@
   <div id="table">
     <el-row v-for="r in 4" :key="r" justify="center">
       <el-col
-        span="2"
-        v-for="card in cards.filter((_, i) => i >= (r - 1) * 13 && i < r * 13)"
+        span="1"
+        v-for="card in game.cards.filter(
+          (_, i) => i >= (r - 1) * 13 && i < r * 13
+        )"
         :key="card.suit + card.point"
       >
         <card-component :suit="card.suit" :num="card.point" />
@@ -11,21 +13,21 @@
     </el-row>
     <el-divider />
     <el-row>
-      <el-button @click="back()"> 返回</el-button>
+      <el-button @click="router.back()">返回</el-button>
+      <el-button @click="game.reset()">重置</el-button>
     </el-row>
   </div>
 </template>
 
 <script setup lang="ts">
 import CardComponent from "@/components/CardComponent.vue";
-import shuffle from "@/ts/CradUtils";
 import router from "@/router";
+import store from "@/store";
+import { ref } from "vue";
 
-const cards = shuffle();
+store.state.game.reset();
 
-function back(): void {
-  router.back();
-}
+const game = ref(store.state.game);
 </script>
 
 <style scoped>
