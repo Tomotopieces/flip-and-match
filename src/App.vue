@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container id="container">
-      <el-header>
+      <el-header id="header">
         <div id="title">神经衰弱</div>
       </el-header>
       <el-main id="main">
@@ -13,8 +13,9 @@
           <el-link
             type="primary"
             href="https://github.com/Tomotopieces/flip-and-match"
-            >Github</el-link
           >
+            GitHub
+          </el-link>
         </el-space>
       </el-footer>
     </el-container>
@@ -24,11 +25,13 @@
 <script setup lang="ts">
 import router from "@/router";
 
+// 中间内容部分导航至标题界面
 router.push("/title");
 </script>
 
 <style scoped>
 #title {
+  margin-top: 1rem;
   text-align: center;
   font-weight: bold;
   font-size: 3.5rem;
@@ -46,6 +49,10 @@ router.push("/title");
   display: flex;
   flex-direction: column;
   min-height: 100%;
+}
+
+#header {
+  flex: 1;
 }
 
 #main {
