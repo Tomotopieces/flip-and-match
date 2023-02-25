@@ -14,7 +14,7 @@ export default class Game {
   /**
    * 总分
    */
-  private static readonly TOTAL_SCORE = 1;
+  private static readonly TOTAL_SCORE = 26;
 
   /**
    * 牌组
