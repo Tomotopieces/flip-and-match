@@ -14,7 +14,7 @@ export default class Game {
   /**
    * 总分
    */
-  private static readonly TOTAL_SCORE = 26;
+  private static readonly TOTAL_SCORE = 1;
 
   /**
    * 牌组
@@ -111,7 +111,7 @@ export default class Game {
   startTimeCount(): void {
     this._startTime = Date.now();
     const _this = this;
-    this._interval = setInterval(() => _this.updateTime(_this), 1000);
+    this._interval = setInterval(() => _this.updateTime(_this), 1);
   }
 
   /**
@@ -120,7 +120,7 @@ export default class Game {
    * @param game 本局游戏
    */
   updateTime(game: Game): void {
-    if (!game.end) {
+    if (!game._end) {
       game._time = Date.now() - game._startTime;
     }
   }
@@ -227,5 +227,9 @@ export default class Game {
 
   get end(): boolean {
     return this._end;
+  }
+
+  set end(value: boolean) {
+    this._end = value;
   }
 }

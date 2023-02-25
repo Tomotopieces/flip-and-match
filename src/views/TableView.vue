@@ -26,7 +26,7 @@
     </el-row>
 
     <!-- 胜利提示 -->
-    <el-dialog v-model="game.end" title="胜利" width="30%">
+    <el-dialog v-model="win" title="胜利" width="30%">
       游戏结束，本次游戏耗时：{{ timeStamp }}。
     </el-dialog>
   </div>
@@ -66,6 +66,9 @@ const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 
 /* computed */
 
+/**
+ * 时间
+ */
 const timeStamp = computed(() => {
   const time = new Date(game.value.time);
   let options = {
@@ -76,6 +79,11 @@ const timeStamp = computed(() => {
   } as Intl.DateTimeFormatOptions;
   return `${new Intl.DateTimeFormat("default", options).format(time)}`;
 });
+
+/**
+ * 胜利后显示提示信息
+ */
+const win = computed(() => game.value.end);
 
 /* created */
 

@@ -5,7 +5,7 @@ import { Card, PointEnum, SuitEnum } from "@/ts/Card";
  */
 export default function shuffle(): Array<Card> {
   const result = new Array<Card>();
-  const indices = getOrderedNumberArray(52); // 作为
+  const indices = getOrderedNumberArray(52);
   while (indices.length > 0) {
     const index = randomInteger(indices.length);
     result.push(Object.assign({}, ORDERED_DECK[indices[index]]));
@@ -44,7 +44,7 @@ function initOrderedDeck(): Array<Card> {
  * @param bound 最大值（不包含）
  */
 function randomInteger(bound: number): number {
-  return Math.floor(Math.random() * (bound - 1));
+  return Math.floor(Math.random() * bound);
 }
 
 /**

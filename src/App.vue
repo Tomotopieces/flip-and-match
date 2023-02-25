@@ -17,7 +17,7 @@
             type="primary"
             href="https://github.com/Tomotopieces/flip-and-match"
           >
-            v0.9
+            v1.0
           </el-link>
         </el-space>
       </el-footer>
