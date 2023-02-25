@@ -11,6 +11,21 @@ export interface Card {
    * 点数
    */
   point: PointEnum;
+
+  /**
+   * 位置
+   */
+  position: number;
+
+  /**
+   * 是否正面朝上
+   */
+  faceUp: boolean;
+
+  /**
+   * 是否被冻结
+   */
+  frozen: boolean;
 }
 
 /**

@@ -8,7 +8,7 @@ export default function shuffle(): Array<Card> {
   const indices = getOrderedNumberArray(52); // 作为
   while (indices.length > 0) {
     const index = randomInteger(indices.length);
-    result.push(ORDERED_DECK[indices[index]]);
+    result.push(Object.assign({}, ORDERED_DECK[indices[index]]));
     indices.splice(index, 1);
   }
   return result;
@@ -29,6 +29,9 @@ function initOrderedDeck(): Array<Card> {
       result.push({
         suit: SuitEnum[s as keyof typeof SuitEnum],
         point: PointEnum[n as keyof typeof PointEnum],
+        faceUp: false,
+        frozen: false,
+        position: 0,
       });
     }
   }

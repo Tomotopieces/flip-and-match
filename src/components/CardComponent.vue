@@ -1,55 +1,50 @@
 <template>
-  <div id="card" @click="onClick()">
+  <div id="card" @click="game.process(card)">
     <img :src="imgPath" :alt="cardName" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from "vue";
-import { CARD_BACK_IMAGE_NAME, PointEnum, SuitEnum } from "@/ts/Card";
+import { computed, ref } from "vue";
+import { CARD_BACK_IMAGE_NAME } from "@/ts/Card";
+import store from "@/store";
+
+/* props */
 
 const props = defineProps<{
   /**
-   * 花色
+   * 位置
    */
-  suit: SuitEnum;
-  /**
-   * 点数
-   */
-  num: PointEnum;
+  position: number;
 }>();
+
+/* data */
+
+/**
+ * 本局游戏
+ */
+const game = ref(store.state.game);
+
+/**
+ * 牌
+ */
+const card = ref(game.value.cards[props.position]);
 
 /**
  * 牌名
  */
-const cardName = `${props.suit}${props.num}`;
+const cardName = `${card.value.suit}${card.value.point}`;
+
+/* computed */
 
 /**
  * 牌面图片路径
  */
-let imgPath = ref(`poker/${CARD_BACK_IMAGE_NAME}.png`);
-
-/**
- * 正面朝上
- */
-let faceUp = ref(false);
-
-/**
- * 冻结（不可点击）
- */
-let isFrozen = ref(false);
-
-function onClick(): void {
-  if (isFrozen.value) {
-    return;
-  }
-
-  faceUp.value = !faceUp.value;
-
-  imgPath.value = faceUp.value
-    ? `/poker/${cardName}.png`
-    : `/poker/${CARD_BACK_IMAGE_NAME}.png`;
-}
+const imgPath = computed(() =>
+  card.value.faceUp
+    ? `poker/${cardName}.png`
+    : `poker/${CARD_BACK_IMAGE_NAME}.png`
+);
 </script>
 
 <style scoped>

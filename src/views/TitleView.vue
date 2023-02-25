@@ -22,6 +22,11 @@
 import router from "@/router";
 import { ref } from "vue";
 
+/* created */
+
+/**
+ * 显示规则对话框
+ */
 const showRule = ref(false);
 </script>
 
